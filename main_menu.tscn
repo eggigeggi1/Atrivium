@@ -1,0 +1,602 @@
+[gd_scene load_steps=18 format=3 uid="uid://ce1aggynjpefb"]
+
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="1_ckf65"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_epqcv"]
+[ext_resource type="Texture2D" uid="uid://rkece27rqmre" path="res://Assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_sncci"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="3_2my4r"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="4_m0pfj"]
+[ext_resource type="Texture2D" uid="uid://tv0rh0b2wyfk" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_1.png" id="5_i7jtv"]
+[ext_resource type="Texture2D" uid="uid://cxxetqf1ewevk" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_2.png" id="6_u7fjv"]
+[ext_resource type="Texture2D" uid="uid://v6d40rv0asnh" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_3.png" id="7_std5r"]
+[ext_resource type="Texture2D" uid="uid://ch51kvlxbgw85" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_4.png" id="8_3mkhn"]
+[ext_resource type="PackedScene" uid="uid://bwhk47ey53ej5" path="res://Assets/intro_outro.tscn" id="9_5yytf"]
+[ext_resource type="AudioStream" uid="uid://hituylafhjbm" path="res://Assets/MusicSFX/WAV Music/Music Loops/2 Journey LOOP TomMusicwav.wav" id="10_mjmx4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmvun"]
+texture = ExtResource("1_sncci")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+22:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+17:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+14:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+14:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+1:18/0 = 0
+4:18/0 = 0
+7:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+8:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+3:21/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+7:21/0 = 0
+8:21/0 = 0
+152:187/0 = 0
+152:188/0 = 0
+152:189/0 = 0
+152:190/0 = 0
+152:191/0 = 0
+153:187/0 = 0
+153:188/0 = 0
+153:189/0 = 0
+153:190/0 = 0
+153:191/0 = 0
+154:187/0 = 0
+154:188/0 = 0
+154:189/0 = 0
+154:190/0 = 0
+154:191/0 = 0
+155:187/0 = 0
+155:188/0 = 0
+155:189/0 = 0
+155:190/0 = 0
+155:191/0 = 0
+156:187/0 = 0
+156:188/0 = 0
+156:189/0 = 0
+156:190/0 = 0
+156:191/0 = 0
+157:187/0 = 0
+157:188/0 = 0
+157:189/0 = 0
+157:190/0 = 0
+157:191/0 = 0
+158:187/0 = 0
+158:188/0 = 0
+158:189/0 = 0
+158:190/0 = 0
+158:191/0 = 0
+159:187/0 = 0
+159:188/0 = 0
+159:189/0 = 0
+159:190/0 = 0
+159:191/0 = 0
+160:187/0 = 0
+160:188/0 = 0
+160:189/0 = 0
+160:190/0 = 0
+160:191/0 = 0
+161:187/0 = 0
+161:188/0 = 0
+161:189/0 = 0
+161:190/0 = 0
+161:191/0 = 0
+162:187/0 = 0
+162:188/0 = 0
+162:189/0 = 0
+162:190/0 = 0
+162:191/0 = 0
+163:187/0 = 0
+163:188/0 = 0
+163:189/0 = 0
+163:190/0 = 0
+163:191/0 = 0
+164:187/0 = 0
+164:188/0 = 0
+164:189/0 = 0
+164:190/0 = 0
+164:191/0 = 0
+165:187/0 = 0
+165:188/0 = 0
+165:189/0 = 0
+165:190/0 = 0
+165:191/0 = 0
+166:187/0 = 0
+166:188/0 = 0
+166:189/0 = 0
+166:190/0 = 0
+166:191/0 = 0
+167:187/0 = 0
+167:188/0 = 0
+167:189/0 = 0
+167:190/0 = 0
+167:191/0 = 0
+168:187/0 = 0
+168:188/0 = 0
+168:189/0 = 0
+168:190/0 = 0
+168:191/0 = 0
+169:187/0 = 0
+169:188/0 = 0
+169:189/0 = 0
+169:190/0 = 0
+169:191/0 = 0
+160:194/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vworj"]
+sources/0 = SubResource("TileSetAtlasSource_pmvun")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc4mw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i7jtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u7fjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_std5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3mkhn")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_xaa85"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oq1m1"]
+gradient = SubResource("Gradient_xaa85")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Environment" id="Environment_afxu7"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.15
+glow_bloom = 0.16
+glow_blend_mode = 0
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ckf65")
+script = ExtResource("1_epqcv")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_vworj")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1114112, 3, 19, 1245184, 3, 1, 1179648, 5, 2, 1179648, 5, 3, 1179648, 5, 4, 1179648, 5, 5, 1179648, 5, 6, 1179648, 5, 7, 1179648, 5, 8, 1179648, 5, 9, 1179648, 5, 10, 1179648, 5, 11, 1179648, 5, 12, 1179648, 5, 13, 1179648, 5, 14, 1179648, 5, 15, 1179648, 5, 16, 1179648, 5, 17, 1179648, 5, 18, 1179648, 5, 655360, 1114112, 5, 655361, 1179648, 5, 655362, 1179648, 5, 655363, 1179648, 5, 655365, 1179648, 5, 655366, 1179648, 5, 655367, 1179648, 5, 655368, 1179648, 5, 655369, 1179648, 5, 655370, 1179648, 5, 655371, 1179648, 5, 655372, 1179648, 5, 655373, 1179648, 5, 655374, 1179648, 5, 655375, 1179648, 5, 655376, 1179648, 5, 655377, 1179648, 5, 655378, 1179648, 5, 655379, 1245184, 5, 65536, 1114112, 0, 65537, 1179648, 0, 65538, 1179648, 0, 65539, 1179648, 0, 65540, 1179648, 0, 65541, 1179648, 0, 65542, 1179648, 0, 65543, 1179648, 0, 65544, 1179648, 0, 65545, 1179648, 0, 65546, 1179648, 0, 65547, 1179648, 0, 65548, 1179648, 0, 65549, 1179648, 0, 65550, 1179648, 0, 65551, 1179648, 0, 65552, 1179648, 0, 65553, 1179648, 0, 65554, 1179648, 0, 65555, 1245184, 0, 131091, 1245184, 1, 196627, 1245184, 1, 262163, 1245184, 1, 327699, 1245184, 1, 393235, 1245184, 1, 458771, 1245184, 1, 524307, 1245184, 1, 589843, 1245184, 2, 589842, 1179648, 2, 589841, 1179648, 2, 589840, 1179648, 2, 589839, 1179648, 2, 589838, 1179648, 2, 589837, 1179648, 2, 589836, 1179648, 2, 589835, 1179648, 2, 589834, 1179648, 2, 589833, 1179648, 2, 589832, 1179648, 2, 589831, 1179648, 2, 589827, 1179648, 2, 589826, 1179648, 2, 589825, 1179648, 2, 589824, 1114112, 2, 524288, 1114112, 1, 458752, 1114112, 1, 393216, 1114112, 1, 327680, 1114112, 1, 262144, 1114112, 1, 196608, 1114112, 1, 131072, 1114112, 1, 196610, 983040, 4, 196611, 983040, 4, 196612, 983040, 4, 196613, 983040, 4, 196614, 983040, 4, 196615, 983040, 4, 196616, 983040, 4, 196617, 983040, 4, 196618, 983040, 4, 196619, 983040, 4, 196620, 983040, 4, 196621, 983040, 4, 196622, 983040, 4, 196623, 983040, 4, 196624, 983040, 4, 196625, 983040, 4, 458769, 983040, 4, 458768, 983040, 4, 458767, 983040, 4, 458766, 983040, 4, 458765, 983040, 4, 458764, 983040, 4, 458763, 983040, 4, 458762, 983040, 4, 458761, 983040, 4, 458760, 983040, 4, 458759, 983040, 4, 458758, 983040, 4, 458757, 983040, 4, 458756, 983040, 4, 458755, 983040, 4, 458754, 983040, 4, 393218, 983040, 4, 327682, 983040, 4, 262146, 983040, 4, 393233, 983040, 4, 327697, 983040, 4, 262161, 983040, 4, 262147, 983040, 4, 262148, 983040, 4, 262149, 983040, 4, 262150, 983040, 4, 262151, 983040, 4, 262152, 983040, 4, 262153, 983040, 4, 262154, 983040, 4, 262155, 983040, 4, 262156, 983040, 4, 262157, 983040, 4, 262158, 983040, 4, 262159, 983040, 4, 262160, 983040, 4, 327696, 983040, 4, 327695, 983040, 4, 327694, 983040, 4, 327693, 983040, 4, 327692, 983040, 4, 327691, 983040, 4, 327690, 983040, 4, 327689, 983040, 4, 327688, 983040, 4, 327687, 983040, 4, 327686, 983040, 4, 327685, 983040, 4, 327684, 983040, 4, 327683, 983040, 4, 393219, 983040, 4, 393220, 983040, 4, 393221, 983040, 4, 393222, 983040, 4, 393223, 983040, 4, 393224, 983040, 4, 393225, 983040, 4, 393226, 983040, 4, 393227, 983040, 4, 393228, 983040, 4, 393229, 983040, 4, 393230, 983040, 4, 393231, 983040, 4, 393232, 983040, 4, 131073, 917504, 3, 131090, 1048576, 3, 524306, 1048576, 5, 524289, 917504, 5, 196609, 917504, 4, 262145, 917504, 4, 327681, 917504, 4, 393217, 917504, 4, 458753, 917504, 4, 458770, 1048576, 4, 393234, 1048576, 4, 327698, 1048576, 4, 262162, 1048576, 4, 196626, 1048576, 4, 524290, 983040, 5, 524291, 983040, 5, 524292, 983040, 5, 524293, 983040, 5, 524297, 983040, 5, 524298, 983040, 5, 524299, 983040, 5, 524300, 983040, 5, 524301, 983040, 5, 524302, 983040, 5, 524303, 983040, 5, 524304, 983040, 5, 524305, 983040, 5, 131074, 983040, 3, 131075, 983040, 3, 131076, 983040, 3, 131077, 983040, 3, 131078, 983040, 3, 131079, 983040, 3, 131080, 983040, 3, 131081, 983040, 3, 131082, 983040, 3, 131083, 983040, 3, 131084, 983040, 3, 131085, 983040, 3, 131086, 983040, 3, 131087, 983040, 3, 131088, 983040, 3, 131089, 983040, 3, 524296, 983040, 5, 524295, 983040, 5, 524294, 983040, 5, 589830, 1179648, 2, 589829, 1179648, 2, 589828, 1179648, 2, 655364, 1179648, 5)
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." instance=ExtResource("4_m0pfj")]
+position = Vector2(114, 65)
+scale = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -50.5
+offset_right = 133.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewRun" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2my4r")
+theme_override_font_sizes/font_size = 22
+text = "New run
+"
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2my4r")
+theme_override_font_sizes/font_size = 22
+text = "Continue
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2my4r")
+theme_override_font_sizes/font_size = 22
+text = "Exit
+"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 36.0
+offset_right = 406.0
+offset_bottom = 95.0
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.5
+offset_top = -37.0
+offset_right = 40.5
+offset_bottom = -10.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(40, -40)
+theme = ExtResource("1_ckf65")
+theme_override_fonts/font = ExtResource("3_2my4r")
+theme_override_font_sizes/font_size = 16
+text = "Atrivium"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TorchSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(92.375, 121.375)
+scale = Vector2(2.42188, 2.42188)
+sprite_frames = SubResource("SpriteFrames_uc4mw")
+animation = &"burn"
+frame_progress = 0.138411
+
+[node name="TorchLight" type="PointLight2D" parent="TorchSprite"]
+position = Vector2(2.02105, -0.336842)
+scale = Vector2(0.628618, 0.628618)
+color = Color(1, 1, 0.243137, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_oq1m1")
+
+[node name="TorchSprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(551.125, 125.375)
+scale = Vector2(2.35938, 2.42188)
+sprite_frames = SubResource("SpriteFrames_uc4mw")
+animation = &"burn"
+frame_progress = 0.849473
+
+[node name="TorchLight" type="PointLight2D" parent="TorchSprite2"]
+position = Vector2(2.02105, -0.336842)
+scale = Vector2(0.628618, 0.628618)
+color = Color(1, 1, 0.243137, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_oq1m1")
+
+[node name="TorchSprite3" type="AnimatedSprite2D" parent="."]
+position = Vector2(551.625, 228.625)
+scale = Vector2(2.54688, 2.42187)
+sprite_frames = SubResource("SpriteFrames_uc4mw")
+animation = &"burn"
+frame_progress = 0.849473
+
+[node name="TorchLight" type="PointLight2D" parent="TorchSprite3"]
+position = Vector2(2.02105, -0.336842)
+scale = Vector2(0.628618, 0.628618)
+color = Color(1, 1, 0.243137, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_oq1m1")
+
+[node name="TorchSprite4" type="AnimatedSprite2D" parent="."]
+position = Vector2(93.875, 230.125)
+scale = Vector2(2.23438, 2.23438)
+sprite_frames = SubResource("SpriteFrames_uc4mw")
+animation = &"burn"
+frame_progress = 0.849473
+
+[node name="TorchLight" type="PointLight2D" parent="TorchSprite4"]
+position = Vector2(2.02105, -0.336842)
+scale = Vector2(0.628618, 0.628618)
+color = Color(1, 1, 0.243137, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_oq1m1")
+
+[node name="Intro_Outro" parent="." instance=ExtResource("9_5yytf")]
+visible = false
+layout_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_afxu7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mjmx4")
+autoplay = true
+
+[connection signal="mouse_entered" from="VBoxContainer/NewRun" to="." method="_on_new_run_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/NewRun" to="." method="_on_new_run_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

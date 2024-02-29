@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwhk47ey53ej5"]
+
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="1_od01h"]
+[ext_resource type="Script" path="res://Assets/intro_outro.gd" id="2_ef53v"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="3_0ccdd"]
+
+[node name="Intro_Outro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_od01h")
+script = ExtResource("2_ef53v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Welcome to the dungeon of Atrivium adventurer... endless treasures await within but none who have entered have ever returned. 
+The monsters inside can only be harmed if you answer their questions correctly. But beware, should you answer incorrectly the monsters will strike back! If you encounter a question you do not know the answer to, perhaps it would be best to defend yourself rather than guess blindly! 
+Are you confident enough in your knowledge to continue?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Continue" type="Button" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Player" parent="." instance=ExtResource("3_0ccdd")]
+position = Vector2(8, -73)
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/Continue" to="." method="_on_continue_pressed"]

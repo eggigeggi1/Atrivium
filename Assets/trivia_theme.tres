@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bdea1gcms1s3p"]
+
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="1_en57b"]
+[ext_resource type="StyleBox" uid="uid://dty1suou5eevw" path="res://button_hover.tres" id="2_kc1c1"]
+[ext_resource type="StyleBox" uid="uid://ouf8c5t4kh2d" path="res://PanelTexture.tres" id="2_vot1f"]
+[ext_resource type="StyleBox" uid="uid://bp4bu5b7jxenp" path="res://button_clicked.tres" id="3_tdnnh"]
+[ext_resource type="StyleBox" uid="uid://b3tq8g10iwi08" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/healthbar.tres" id="5_j50mh"]
+[ext_resource type="StyleBox" uid="uid://bu6uxu4ai183p" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/healthbarempty.tres" id="5_m83a7"]
+
+[resource]
+Button/fonts/font = ExtResource("1_en57b")
+Button/styles/disabled = ExtResource("2_vot1f")
+Button/styles/hover = ExtResource("2_kc1c1")
+Button/styles/normal = ExtResource("2_vot1f")
+Button/styles/panel = ExtResource("2_vot1f")
+Button/styles/pressed = ExtResource("3_tdnnh")
+Label/constants/line_spacing = 6
+Label/fonts/font = ExtResource("1_en57b")
+Panel/styles/panel = ExtResource("2_vot1f")
+ProgressBar/styles/background = ExtResource("5_m83a7")
+ProgressBar/styles/fill = ExtResource("5_j50mh")
+ProgressBar/styles/panel = null

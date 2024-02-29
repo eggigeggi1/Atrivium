@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://50rlttdogp1i"]
+
+[ext_resource type="Texture2D" uid="uid://37gx0w0hud8i" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/rpg (2).png" id="1_n2233"]
+
+[resource]
+texture = ExtResource("1_n2233")
+region_rect = Rect2(33, 126, 80, 9)

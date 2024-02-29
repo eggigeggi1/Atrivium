@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2xx6qqrnoggo"]
+
+[ext_resource type="Script" path="res://heal_scene.gd" id="1_4cvb1"]
+[ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="2_u18r6"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="3_libc1"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="4_6wxdn"]
+[ext_resource type="PackedScene" uid="uid://c153tp4v2t2n0" path="res://healer.tscn" id="5_2kk05"]
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="6_aub70"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aiya"]
+bg_color = Color(0.803922, 0.14902, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32gaf"]
+bg_color = Color(0.156863, 0.615686, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="Heal Scene" type="Node2D"]
+script = ExtResource("1_4cvb1")
+
+[node name="Tilesets" parent="." instance=ExtResource("2_u18r6")]
+
+[node name="Player" parent="." instance=ExtResource("3_libc1")]
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+offset_left = 32.0
+offset_top = 215.0
+offset_right = 181.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("4_6wxdn")
+theme_override_styles/background = SubResource("StyleBoxFlat_3aiya")
+theme_override_styles/fill = SubResource("StyleBoxFlat_32gaf")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player/HealthBar"]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("4_6wxdn")
+text = "test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Healer" parent="." instance=ExtResource("5_2kk05")]
+position = Vector2(-9, 4)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Healer"]
+offset_left = 209.0
+offset_top = 79.0
+offset_right = 454.0
+offset_bottom = 210.0
+theme = ExtResource("6_aub70")
+theme_override_constants/separation = 0
+
+[node name="Text" type="Panel" parent="Healer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Healer/VBoxContainer/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.286275, 0.286275, 1)
+theme_override_fonts/font = ExtResource("4_6wxdn")
+theme_override_font_sizes/font_size = 16
+text = "Greetings Puny human... I can heal your pathetic wounds if you trade me your life force..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Healer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Yes" type="Button" parent="Healer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_6wxdn")
+text = "Yes"
+
+[node name="No" type="Button" parent="Healer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_6wxdn")
+text = "No"
+
+[node name="Tooltip" type="Control" parent="Healer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 211.0
+offset_top = 208.0
+offset_right = 332.0
+offset_bottom = 242.0
+theme = ExtResource("6_aub70")
+
+[node name="Panel" type="Panel" parent="Healer/Tooltip"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 44.0
+
+[node name="Label" type="Label" parent="Healer/Tooltip/Panel"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 123.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_6wxdn")
+theme_override_font_sizes/font_size = 12
+text = "Heal 50 HP
+Max HP -10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="Healer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_mouse_entered"]
+[connection signal="mouse_exited" from="Healer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_mouse_exited"]
+[connection signal="pressed" from="Healer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Healer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]

@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0q17tuudrv0s"]
+
+[ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_7q0to"]
+[ext_resource type="Script" path="res://event_scene.gd" id="1_hkfcd"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="2_284bv"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="3_302vx"]
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="4_8dvlf"]
+[ext_resource type="Texture2D" uid="uid://b0w5s8b55gq4u" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flasks/flasks_4_4.png" id="5_mh75o"]
+[ext_resource type="Texture2D" uid="uid://qb8gqewjvxm7" path="res://Assets/RPG Items 16x16 Pack 1/book14.png" id="6_jkm56"]
+[ext_resource type="Texture2D" uid="uid://dwgt13pv02h8o" path="res://Assets/RPG Items 16x16 Pack 1/staff6.png" id="7_q7gqb"]
+
+[node name="Event Scene" type="Node2D"]
+script = ExtResource("1_hkfcd")
+
+[node name="Tilesets" parent="." instance=ExtResource("1_7q0to")]
+
+[node name="Player" parent="." instance=ExtResource("2_284bv")]
+
+[node name="Event" type="VBoxContainer" parent="."]
+offset_left = 130.0
+offset_top = 89.0
+offset_right = 492.0
+offset_bottom = 263.0
+theme = ExtResource("4_8dvlf")
+metadata/_edit_group_ = true
+
+[node name="Text" type="Panel" parent="Event"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Event/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_302vx")
+theme_override_font_sizes/font_size = 19
+text = "You found a health potion on the ground, lucky you!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Event"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Event/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Panel" type="Panel" parent="Event/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Event/HBoxContainer/PanelContainer/Panel"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 265.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_302vx")
+text = "Chant spell?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept" type="Button" parent="Event/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_302vx")
+text = "Accept"
+
+[node name="Potion" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(482, 320)
+scale = Vector2(3.375, 3.375)
+texture = ExtResource("5_mh75o")
+
+[node name="Book" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(488, 337)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("6_jkm56")
+
+[node name="Staff" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(482, 327)
+scale = Vector2(3.0625, 3.0625)
+texture = ExtResource("7_q7gqb")
+
+[connection signal="pressed" from="Event/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

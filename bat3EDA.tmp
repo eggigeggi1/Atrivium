@@ -1,0 +1,252 @@
+[gd_scene load_steps=9 format=3 uid="uid://5jcijfmvp7ft"]
+
+[ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_aqhpq"]
+[ext_resource type="Script" path="res://battle_scene.gd" id="1_dd7po"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="2_5a6us"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="4_s117w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i7w8"]
+bg_color = Color(0.803922, 0.14902, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ipjl"]
+bg_color = Color(0.156863, 0.615686, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgqpd"]
+bg_color = Color(0.803922, 0.14902, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qru4k"]
+bg_color = Color(0.156863, 0.615686, 0.141176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="Battle Scene" type="Node2D"]
+script = ExtResource("1_dd7po")
+
+[node name="Tilesets" parent="." instance=ExtResource("1_aqhpq")]
+
+[node name="Player" parent="." instance=ExtResource("2_5a6us")]
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+offset_left = 32.0
+offset_top = 215.0
+offset_right = 181.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_styles/background = SubResource("StyleBoxFlat_5i7w8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ipjl")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player/HealthBar"]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BattleMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.418
+anchor_top = 7.549
+anchor_right = 2.418
+anchor_bottom = 7.549
+offset_left = 56.28
+offset_top = -28.96
+offset_right = 188.28
+offset_bottom = 36.04
+
+[node name="TriviaStrike" type="Button" parent="BattleMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 20
+text = "Trivia Strike
+"
+
+[node name="Defend" type="Button" parent="BattleMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 20
+text = "Defend?"
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="EnemySpawn"]
+offset_left = 449.0
+offset_top = 218.0
+offset_right = 607.0
+offset_bottom = 254.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bgqpd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qru4k")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemySpawn/EnemyHealthBar"]
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Trivia" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 143.0
+offset_top = 57.0
+offset_right = 461.0
+offset_bottom = 206.0
+metadata/_edit_group_ = true
+
+[node name="Question" type="Panel" parent="Trivia"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00314465
+anchor_top = 0.00671141
+anchor_right = 1.0
+anchor_bottom = 0.597315
+offset_left = -55.0
+offset_right = 75.0
+offset_bottom = -15.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Trivia/Question"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00315
+anchor_bottom = 1.05195
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Sample Text for question123123123123123123"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Answer1" type="Button" parent="Trivia"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 78.0
+offset_right = 179.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer1"
+
+[node name="Answer2" type="Button" parent="Trivia"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 75.0
+offset_right = 394.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer2"
+
+[node name="Answer3" type="Button" parent="Trivia"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -38.0
+offset_right = 179.0
+offset_bottom = -5.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer3"
+
+[node name="Answer4" type="Button" parent="Trivia"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = -43.0
+offset_right = 76.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer4"
+
+[node name="Message" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Message"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 88.0
+
+[node name="Label" type="Label" parent="Message/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0453125
+anchor_top = 0.261364
+anchor_right = 0.951563
+anchor_bottom = 0.772727
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 25
+text = "Sample Text
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="answer_selected" from="." to="." method="_on_answer_selected"]
+[connection signal="correct" from="." to="." method="_on_correct"]
+[connection signal="incorrect" from="." to="." method="_on_incorrect"]
+[connection signal="pressed" from="BattleMenu/VBoxContainer/TriviaStrike" to="." method="_on_trivia_strike_pressed"]
+[connection signal="pressed" from="BattleMenu/VBoxContainer/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="Trivia/Answer1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Trivia/Answer2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Trivia/Answer3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Trivia/Answer4" to="." method="_on_answer_4_pressed"]

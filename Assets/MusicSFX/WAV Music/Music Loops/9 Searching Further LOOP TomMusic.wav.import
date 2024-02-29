@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vchvxvtg1xdu"
+path="res://.godot/imported/9 Searching Further LOOP TomMusic.wav-88f5e42c79a7562bf23a9429c520b3e4.sample"
+
+[deps]
+
+source_file="res://Assets/MusicSFX/WAV Music/Music Loops/9 Searching Further LOOP TomMusic.wav"
+dest_files=["res://.godot/imported/9 Searching Further LOOP TomMusic.wav-88f5e42c79a7562bf23a9429c520b3e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

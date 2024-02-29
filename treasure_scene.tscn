@@ -1,0 +1,357 @@
+[gd_scene load_steps=18 format=3 uid="uid://dcr3q1wijdxmj"]
+
+[ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_8omcu"]
+[ext_resource type="Script" path="res://treasure_scene.gd" id="1_ncxx3"]
+[ext_resource type="Texture2D" uid="uid://c7aaof8hmuicu" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_1.png" id="2_b6mku"]
+[ext_resource type="Texture2D" uid="uid://skweycjodcs7" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_2.png" id="3_hojfm"]
+[ext_resource type="Texture2D" uid="uid://cejxvr4hw25m1" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_3.png" id="4_e2id4"]
+[ext_resource type="Texture2D" uid="uid://bn06kfiyjmdin" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_4.png" id="5_78mr7"]
+[ext_resource type="Texture2D" uid="uid://bnsd5doiv2tfo" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_1.png" id="6_pxovn"]
+[ext_resource type="Texture2D" uid="uid://ouqsrnoolhod" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_2.png" id="7_rw778"]
+[ext_resource type="Texture2D" uid="uid://dh7wbgevee4ok" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_3.png" id="8_5rq25"]
+[ext_resource type="Texture2D" uid="uid://buu35o2uijtir" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/chest/chest_open_4.png" id="9_ng5wo"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="10_2sqwc"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="11_grit5"]
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="11_mmbq0"]
+[ext_resource type="Texture2D" uid="uid://b3g3ledknow2g" path="res://Assets/RPG Items 16x16 Pack 1/staff32.png" id="13_pwijv"]
+[ext_resource type="Texture2D" uid="uid://bbf8wuiebf8aa" path="res://Assets/RPG Items 16x16 Pack 1/sword19.png" id="14_dgiji"]
+[ext_resource type="Texture2D" uid="uid://cxrf3ka7dbj3a" path="res://Assets/RPG Items 16x16 Pack 1/orb3.png" id="15_5n06d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7nqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b6mku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hojfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e2id4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_78mr7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pxovn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rw778")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5rq25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ng5wo")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Treasure_Scene" type="Node2D"]
+script = ExtResource("1_ncxx3")
+
+[node name="Tilesets" parent="." instance=ExtResource("1_8omcu")]
+
+[node name="Chest" type="Node2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Chest"]
+position = Vector2(476, 330)
+scale = Vector2(4.125, 4.125)
+sprite_frames = SubResource("SpriteFrames_u7nqn")
+animation = &"open"
+frame = 3
+frame_progress = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 130.0
+offset_top = 180.0
+offset_right = 283.0
+offset_bottom = 262.0
+theme = ExtResource("11_mmbq0")
+theme_override_constants/separation = 0
+
+[node name="Text" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Open the chest?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Yes"
+
+[node name="No" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "No"
+
+[node name="Player" parent="." instance=ExtResource("11_grit5")]
+
+[node name="Tooltip" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 145.0
+offset_top = 253.0
+offset_right = 488.0
+offset_bottom = 351.0
+theme = ExtResource("11_mmbq0")
+
+[node name="Panel" type="Panel" parent="Tooltip"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 346.0
+offset_bottom = 99.0
+
+[node name="Label" type="Label" parent="Tooltip/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 338.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("10_2sqwc")
+theme_override_font_sizes/font_size = 16
+text = "The Triviorb of True Sight will allow its owner to glimpse into the truths of this world (3 options instead of 4 on Trivia Strikes)
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Loot" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 139.0
+offset_top = 70.0
+offset_right = 494.0
+offset_bottom = 256.0
+theme = ExtResource("11_mmbq0")
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Loot"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Text" type="Panel" parent="Loot/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Loot/PanelContainer/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_2sqwc")
+theme_override_font_sizes/font_size = 26
+text = "Loot! Choose a reward"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Reward1" type="HBoxContainer" parent="Loot"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Loot/Reward1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Panel" type="Panel" parent="Loot/Reward1/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Loot/Reward1/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 6.0
+offset_right = 264.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Ankh of Resurrquestion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept1" type="Button" parent="Loot/Reward1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Choose"
+
+[node name="Reward2" type="HBoxContainer" parent="Loot"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Loot/Reward2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Panel2" type="Panel" parent="Loot/Reward2/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Loot/Reward2/PanelContainer/Panel2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 6.0
+offset_right = 264.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Ankh of Resurrquestion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept2" type="Button" parent="Loot/Reward2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_2sqwc")
+text = "Choose"
+
+[node name="Treasures1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 151.0
+offset_top = 174.0
+offset_right = 191.0
+offset_bottom = 214.0
+mouse_filter = 2
+
+[node name="Ankh" type="Sprite2D" parent="Treasures1"]
+visible = false
+position = Vector2(13, 22)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("13_pwijv")
+
+[node name="Blade" type="Sprite2D" parent="Treasures1"]
+visible = false
+position = Vector2(13, 23)
+scale = Vector2(1.4375, 1.3125)
+texture = ExtResource("14_dgiji")
+
+[node name="Orb" type="Sprite2D" parent="Treasures1"]
+visible = false
+position = Vector2(13, 24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("15_5n06d")
+
+[node name="Treasures2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 151.0
+offset_top = 214.0
+offset_right = 191.0
+offset_bottom = 254.0
+mouse_filter = 2
+
+[node name="Ankh" type="Sprite2D" parent="Treasures2"]
+visible = false
+position = Vector2(13, 22)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("13_pwijv")
+
+[node name="Blade" type="Sprite2D" parent="Treasures2"]
+visible = false
+position = Vector2(13, 23)
+scale = Vector2(1.4375, 1.3125)
+texture = ExtResource("14_dgiji")
+
+[node name="Orb" type="Sprite2D" parent="Treasures2"]
+visible = false
+position = Vector2(13, 24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("15_5n06d")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="mouse_entered" from="Loot/Reward1/PanelContainer/Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Loot/Reward1/PanelContainer/Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="pressed" from="Loot/Reward1/Accept1" to="." method="_on_accept_pressed"]
+[connection signal="mouse_entered" from="Loot/Reward2/PanelContainer/Panel2" to="." method="_on_panel_2_mouse_entered"]
+[connection signal="mouse_exited" from="Loot/Reward2/PanelContainer/Panel2" to="." method="_on_panel_2_mouse_exited"]
+[connection signal="pressed" from="Loot/Reward2/Accept2" to="." method="_on_accept_2_pressed"]

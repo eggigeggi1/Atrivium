@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbde6idovjof7"
+path="res://.godot/imported/5 A Safe Space LOOP TomMusic.wav-df19e4a16ac11774cd0f9a72f71e75fa.sample"
+
+[deps]
+
+source_file="res://Assets/MusicSFX/WAV Music/Music Loops/5 A Safe Space LOOP TomMusic.wav"
+dest_files=["res://.godot/imported/5 A Safe Space LOOP TomMusic.wav-df19e4a16ac11774cd0f9a72f71e75fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnwfkmrx3n3hr"
+path="res://.godot/imported/7 The Wilderness INTRO TomMusic.wav-dafb316ede5b8d061a2828f5b6bb3c5a.sample"
+
+[deps]
+
+source_file="res://Assets/MusicSFX/WAV Music/Music Loops/7 The Wilderness INTRO TomMusic.wav"
+dest_files=["res://.godot/imported/7 The Wilderness INTRO TomMusic.wav-dafb316ede5b8d061a2828f5b6bb3c5a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

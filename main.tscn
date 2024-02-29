@@ -1,0 +1,670 @@
+[gd_scene load_steps=11 format=3 uid="uid://cd862gdtfo15v"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_r8mu7"]
+[ext_resource type="PackedScene" uid="uid://dup68s4mahrli" path="res://map_tiles.tscn" id="2_uwtm6"]
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="3_cnbcs"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="3_ww7yd"]
+[ext_resource type="Texture2D" uid="uid://b3g3ledknow2g" path="res://Assets/RPG Items 16x16 Pack 1/staff32.png" id="4_2oqfo"]
+[ext_resource type="Texture2D" uid="uid://bbf8wuiebf8aa" path="res://Assets/RPG Items 16x16 Pack 1/sword19.png" id="5_cw3a2"]
+[ext_resource type="Texture2D" uid="uid://cxrf3ka7dbj3a" path="res://Assets/RPG Items 16x16 Pack 1/orb3.png" id="6_ao8g7"]
+[ext_resource type="Theme" uid="uid://bfwbma77ngb62" path="res://Assets/mapbuttons.tres" id="8_5f71t"]
+[ext_resource type="Script" path="res://Saver.gd" id="9_nm61i"]
+[ext_resource type="AudioStream" uid="uid://dbde6idovjof7" path="res://Assets/MusicSFX/WAV Music/Music Loops/5 A Safe Space LOOP TomMusic.wav" id="10_nfq0l"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_r8mu7")
+
+[node name="Map_Tiles" parent="." instance=ExtResource("2_uwtm6")]
+
+[node name="Path1" type="Line2D" parent="Map_Tiles"]
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(50, 177.593)
+points = PackedVector2Array(0, 0.406662, 98, -98.5933, 157, -97.5933, 224, -96.5933, 286, -95.5933, 351, -97.5933, 416, -95.5933, 478, -96.5933, 544, 0.406662)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+
+[node name="Path2" type="Line2D" parent="Map_Tiles"]
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(51, 175.093)
+points = PackedVector2Array(-1, 0.906662, 96, 1.90666, 160, 1.90666, 221, 2.90666, 284, 4.90666, 349, -0.093338, 416, 1.90666, 478, 3.90666, 543, 4.90666)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Path3" type="Line2D" parent="Map_Tiles"]
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(50.5, 176.093)
+points = PackedVector2Array(0.5, -0.093338, 94.5, 96.9067, 158.5, 97.9067, 224.5, 95.9067, 284.5, 98.9067, 352.5, 96.9067, 416.5, 94.9067, 477.5, 95.9067, 544.5, 3.90666)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="MapNodes" type="CanvasLayer" parent="."]
+
+[node name="MapNodes" type="Control" parent="MapNodes"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 39.0
+theme = ExtResource("8_5f71t")
+metadata/_edit_group_ = true
+
+[node name="Start" type="Button" parent="MapNodes/MapNodes"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 162.0
+offset_right = 64.0
+offset_bottom = 189.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Start"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -9.0
+offset_right = 32.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Boss" type="Button" parent="MapNodes/MapNodes"]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 159.0
+offset_right = 610.0
+offset_bottom = 195.0
+disabled = true
+toggle_mode = true
+
+[node name="Path1" type="Control" parent="MapNodes/MapNodes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path1-1" type="Button" parent="MapNodes/MapNodes/Path1"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 66.0
+offset_right = 162.0
+offset_bottom = 93.0
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-1"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-2" type="Button" parent="MapNodes/MapNodes/Path1" groups=["HealButtons"]]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 66.0
+offset_right = 221.0
+offset_bottom = 93.0
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-2"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-3" type="Button" parent="MapNodes/MapNodes/Path1" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 65.0
+offset_right = 289.0
+offset_bottom = 92.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-3"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-Treasure" type="Button" parent="MapNodes/MapNodes/Path1" groups=["TreasureButtons"]]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 73.0
+offset_right = 349.0
+offset_bottom = 99.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-Treasure"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-4" type="Button" parent="MapNodes/MapNodes/Path1" groups=["EventButtons"]]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 65.0
+offset_right = 415.0
+offset_bottom = 96.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-4"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-5" type="Button" parent="MapNodes/MapNodes/Path1" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 66.0
+offset_right = 481.0
+offset_bottom = 93.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-5"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path1-6" type="Button" parent="MapNodes/MapNodes/Path1" groups=["HealButtons"]]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 66.0
+offset_right = 542.0
+offset_bottom = 93.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path1/Path1-6"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2" type="Control" parent="MapNodes/MapNodes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path2-1" type="Button" parent="MapNodes/MapNodes/Path2"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 162.0
+offset_right = 161.0
+offset_bottom = 189.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-1"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-2" type="Button" parent="MapNodes/MapNodes/Path2" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 160.0
+offset_right = 224.0
+offset_bottom = 187.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-2"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-3" type="Button" parent="MapNodes/MapNodes/Path2" groups=["HealButtons"]]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 163.0
+offset_right = 286.0
+offset_bottom = 190.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-3"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-Treasure" type="Button" parent="MapNodes/MapNodes/Path2" groups=["TreasureButtons"]]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 168.0
+offset_right = 349.0
+offset_bottom = 195.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-Treasure"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-4" type="Button" parent="MapNodes/MapNodes/Path2" groups=["EventButtons"]]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 159.0
+offset_right = 416.0
+offset_bottom = 193.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-4"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-5" type="Button" parent="MapNodes/MapNodes/Path2" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 163.0
+offset_right = 481.0
+offset_bottom = 190.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-5"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2-6" type="Button" parent="MapNodes/MapNodes/Path2" groups=["HealButtons"]]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 163.0
+offset_right = 541.0
+offset_bottom = 190.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path2/Path2-6"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3" type="Control" parent="MapNodes/MapNodes"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path3-1" type="Button" parent="MapNodes/MapNodes/Path3"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 259.0
+offset_right = 158.0
+offset_bottom = 286.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-1"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-2" type="Button" parent="MapNodes/MapNodes/Path3" groups=["EventButtons"]]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 257.0
+offset_right = 223.0
+offset_bottom = 287.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-2"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-3" type="Button" parent="MapNodes/MapNodes/Path3" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 258.0
+offset_right = 288.0
+offset_bottom = 285.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-3"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-Treasure" type="Button" parent="MapNodes/MapNodes/Path3" groups=["TreasureButtons"]]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 265.0
+offset_right = 350.0
+offset_bottom = 292.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-Treasure"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-4" type="Button" parent="MapNodes/MapNodes/Path3" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 258.0
+offset_right = 417.0
+offset_bottom = 285.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-4"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-5" type="Button" parent="MapNodes/MapNodes/Path3" groups=["FightButtons"]]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 258.0
+offset_right = 481.0
+offset_bottom = 285.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-5"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path3-6" type="Button" parent="MapNodes/MapNodes/Path3" groups=["HealButtons"]]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 258.0
+offset_right = 541.0
+offset_bottom = 285.0
+disabled = true
+toggle_mode = true
+
+[node name="Label" type="Label" parent="MapNodes/MapNodes/Path3/Path3-6"]
+visible = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 0.909804)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 227.0
+offset_bottom = 49.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI/Panel"]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 31.0
+theme = ExtResource("3_cnbcs")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="UI/Panel/HealthBar"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("3_ww7yd")
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Treasure" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_cnbcs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Treasure"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 18.0
+offset_right = 371.0
+offset_bottom = 50.0
+
+[node name="Container" type="Container" parent="UI/Treasure/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ankh" type="Sprite2D" parent="UI/Treasure/HBoxContainer/Container"]
+position = Vector2(20, 14)
+scale = Vector2(1.8125, 1.875)
+texture = ExtResource("4_2oqfo")
+
+[node name="Container2" type="Container" parent="UI/Treasure/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Blade" type="Sprite2D" parent="UI/Treasure/HBoxContainer/Container2"]
+position = Vector2(19, 13)
+scale = Vector2(2.17188, 2.04687)
+texture = ExtResource("5_cw3a2")
+
+[node name="Container3" type="Container" parent="UI/Treasure/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Orb" type="Sprite2D" parent="UI/Treasure/HBoxContainer/Container3"]
+position = Vector2(21, 13)
+scale = Vector2(1.875, 1.75)
+texture = ExtResource("6_ao8g7")
+
+[node name="Tooltip" type="Control" parent="UI/Treasure"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 51.0
+offset_right = 590.0
+offset_bottom = 91.0
+
+[node name="Panel" type="Panel" parent="UI/Treasure/Tooltip"]
+layout_mode = 0
+offset_right = 265.0
+offset_bottom = 106.0
+
+[node name="Label" type="Label" parent="UI/Treasure/Tooltip/Panel"]
+layout_mode = 0
+offset_right = 265.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("3_ww7yd")
+theme_override_font_sizes/font_size = 16
+text = "The Triviorb of True Sight will allow its owner to glimpse into the truths of this world (3 options instead of 4 on Trivia Strikes)
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SaveExit" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 16.0
+offset_right = 622.0
+offset_bottom = 52.0
+theme = ExtResource("3_cnbcs")
+text = "Save and exit"
+
+[node name="Saver" type="Node" parent="."]
+script = ExtResource("9_nm61i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nfq0l")
+autoplay = true
+
+[connection signal="pressed" from="MapNodes/MapNodes/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MapNodes/MapNodes/Boss" to="." method="_on_boss_pressed"]
+[connection signal="pressed" from="MapNodes/MapNodes/Path1/Path1-1" to="." method="_on_path_11_pressed"]
+[connection signal="pressed" from="MapNodes/MapNodes/Path2/Path2-1" to="." method="_on_path_21_pressed"]
+[connection signal="pressed" from="MapNodes/MapNodes/Path3/Path3-1" to="." method="_on_path_31_pressed"]
+[connection signal="mouse_entered" from="UI/Treasure/HBoxContainer/Container" to="." method="_on_container_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Treasure/HBoxContainer/Container" to="." method="_on_container_mouse_exited"]
+[connection signal="mouse_entered" from="UI/Treasure/HBoxContainer/Container2" to="." method="_on_container_2_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Treasure/HBoxContainer/Container2" to="." method="_on_container_2_mouse_exited"]
+[connection signal="mouse_entered" from="UI/Treasure/HBoxContainer/Container3" to="." method="_on_container_3_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Treasure/HBoxContainer/Container3" to="." method="_on_container_3_mouse_exited"]
+[connection signal="pressed" from="UI/SaveExit" to="Saver" method="_on_save_exit_pressed"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3wxjwqsgy47n"
+path="res://.godot/imported/8 Sanctuary FULL LOOP TomMusic.wav-014aab675b35286322ccc668d2e1f9ae.sample"
+
+[deps]
+
+source_file="res://Assets/MusicSFX/WAV Music/Music Loops/8 Sanctuary FULL LOOP TomMusic.wav"
+dest_files=["res://.godot/imported/8 Sanctuary FULL LOOP TomMusic.wav-014aab675b35286322ccc668d2e1f9ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

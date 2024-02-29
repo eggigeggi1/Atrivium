@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqjm5qqoll38"]
+
+[ext_resource type="Texture2D" uid="uid://bak8wshtwcrfh" path="res://Assets/Borders/01 Border 01.png" id="1_fblsa"]
+
+[node name="PanelFrame2" type="NinePatchRect"]
+offset_right = 65.0
+offset_bottom = 65.0
+texture = ExtResource("1_fblsa")
+region_rect = Rect2(1, 193, 62, 62)
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11

@@ -1,0 +1,319 @@
+[gd_scene load_steps=14 format=3 uid="uid://5jcijfmvp7ft"]
+
+[ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_aqhpq"]
+[ext_resource type="Script" path="res://battle_scene.gd" id="1_dd7po"]
+[ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="2_5a6us"]
+[ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="4_s117w"]
+[ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="5_08kjl"]
+[ext_resource type="StyleBox" uid="uid://bu6uxu4ai183p" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/healthbarempty.tres" id="6_6gg88"]
+[ext_resource type="PackedScene" uid="uid://bwhk47ey53ej5" path="res://Assets/intro_outro.tscn" id="6_neexg"]
+[ext_resource type="StyleBox" uid="uid://b3tq8g10iwi08" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/healthbar.tres" id="6_ylecg"]
+[ext_resource type="AudioStream" uid="uid://ddd4f24tbmymd" path="res://Assets/MusicSFX/WAV Music/Music Loops/4 Battle Track LOOP TomMusic.wav" id="7_al7mn"]
+[ext_resource type="StyleBox" uid="uid://50rlttdogp1i" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/overdriveempty.tres" id="7_qtnfd"]
+[ext_resource type="AudioStream" uid="uid://bpf65b7drf633" path="res://Assets/MusicSFX/WAV Music/Music Loops/10 Terminus FULL LOOP TomMusic.wav" id="8_3i1vq"]
+[ext_resource type="StyleBox" uid="uid://co5yy82h5qwiq" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/overdrive.tres" id="8_hfnq5"]
+[ext_resource type="AudioStream" uid="uid://dst0jsnv7mnin" path="res://Assets/MusicSFX/10_Battle_SFX/22_Slash_04.wav" id="9_jjcrn"]
+
+[node name="Battle Scene" type="Node2D"]
+script = ExtResource("1_dd7po")
+
+[node name="Tilesets" parent="." instance=ExtResource("1_aqhpq")]
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_5a6us")]
+z_as_relative = false
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+offset_left = 32.0
+offset_top = 203.0
+offset_right = 237.0
+offset_bottom = 247.0
+theme = ExtResource("5_08kjl")
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_styles/background = ExtResource("6_6gg88")
+theme_override_styles/fill = ExtResource("6_ylecg")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player/HealthBar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 184.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "HP 50/100
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OverdriveBar" type="ProgressBar" parent="Player"]
+offset_left = 32.0
+offset_top = 165.0
+offset_right = 237.0
+offset_bottom = 209.0
+theme = ExtResource("5_08kjl")
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_styles/background = ExtResource("7_qtnfd")
+theme_override_styles/fill = ExtResource("8_hfnq5")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player/OverdriveBar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 184.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "HP 50/100
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BattleMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme = ExtResource("5_08kjl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.418
+anchor_top = 7.549
+anchor_right = 2.418
+anchor_bottom = 7.549
+offset_left = 56.28
+offset_top = -28.96
+offset_right = 188.28
+offset_bottom = 36.04
+theme_override_constants/separation = 0
+
+[node name="TriviaStrike" type="Button" parent="BattleMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 20
+text = "Trivia Strike
+"
+
+[node name="Defend" type="Button" parent="BattleMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 20
+text = "Defend?"
+
+[node name="Overdrive" type="Button" parent="BattleMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Overdrive Strike"
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="EnemySpawn"]
+offset_left = 438.0
+offset_top = 214.0
+offset_right = 596.0
+offset_bottom = 250.0
+theme = ExtResource("5_08kjl")
+value = 80.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemySpawn/EnemyHealthBar"]
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Trivia" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 122.0
+offset_top = 58.0
+offset_right = 451.0
+offset_bottom = 212.0
+theme = ExtResource("5_08kjl")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Trivia"]
+layout_mode = 0
+offset_left = -46.0
+offset_top = -19.0
+offset_right = 448.0
+offset_bottom = 151.0
+theme_override_constants/separation = 0
+
+[node name="Question" type="PanelContainer" parent="Trivia/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.4
+
+[node name="Question" type="Panel" parent="Trivia/VBoxContainer/Question"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Trivia/VBoxContainer/Question/Question"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00315
+anchor_bottom = 1.05195
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Sample Text for question123123123123123123"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Ans12" type="HBoxContainer" parent="Trivia/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Answer1" type="Button" parent="Trivia/VBoxContainer/Ans12"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 16
+text = "
+"
+
+[node name="Label" type="Label" parent="Trivia/VBoxContainer/Ans12/Answer1"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 233.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Answer2" type="Button" parent="Trivia/VBoxContainer/Ans12"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+
+[node name="Label" type="Label" parent="Trivia/VBoxContainer/Ans12/Answer2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 235.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Ans34" type="HBoxContainer" parent="Trivia/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Answer3" type="Button" parent="Trivia/VBoxContainer/Ans34"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+
+[node name="Label" type="Label" parent="Trivia/VBoxContainer/Ans34/Answer3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 234.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Answer4" type="Button" parent="Trivia/VBoxContainer/Ans34"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_s117w")
+
+[node name="Label" type="Label" parent="Trivia/VBoxContainer/Ans34/Answer4"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 236.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("4_s117w")
+text = "Answer4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Message" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_08kjl")
+
+[node name="Panel" type="Panel" parent="Message"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 88.0
+
+[node name="Label" type="Label" parent="Message/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0453125
+anchor_top = 0.261364
+anchor_right = 0.951563
+anchor_bottom = 0.772727
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 25
+text = "Sample Text
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Outro" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 352.0
+
+[node name="Intro_Outro" parent="Outro" instance=ExtResource("6_neexg")]
+layout_mode = 1
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_al7mn")
+volume_db = -10.0
+autoplay = true
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3i1vq")
+
+[node name="SoundFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jjcrn")
+volume_db = 20.0
+
+[node name="EnemySoundFX" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="answer_selected" from="." to="." method="_on_answer_selected"]
+[connection signal="correct" from="." to="." method="_on_correct"]
+[connection signal="incorrect" from="." to="." method="_on_incorrect"]
+[connection signal="pressed" from="BattleMenu/VBoxContainer/TriviaStrike" to="." method="_on_trivia_strike_pressed"]
+[connection signal="pressed" from="BattleMenu/VBoxContainer/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="BattleMenu/VBoxContainer/Overdrive" to="." method="_on_overdrive_pressed"]
+[connection signal="pressed" from="Trivia/VBoxContainer/Ans12/Answer1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Trivia/VBoxContainer/Ans12/Answer2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Trivia/VBoxContainer/Ans34/Answer3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Trivia/VBoxContainer/Ans34/Answer4" to="." method="_on_answer_4_pressed"]

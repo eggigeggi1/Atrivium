@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnm61yxr1il8a"
+path="res://.godot/imported/6 Call to Adventure FULL LOOP TomMusic.wav-a3ac55c7dc6782788c80174e9a232025.sample"
+
+[deps]
+
+source_file="res://Assets/MusicSFX/WAV Music/Music Loops/6 Call to Adventure FULL LOOP TomMusic.wav"
+dest_files=["res://.godot/imported/6 Call to Adventure FULL LOOP TomMusic.wav-a3ac55c7dc6782788c80174e9a232025.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

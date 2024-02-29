@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://coytnfn1atd1x"]
+
+[ext_resource type="Texture2D" uid="uid://bak8wshtwcrfh" path="res://Assets/Borders/01 Border 01.png" id="1_uww1p"]
+
+[sub_resource type="Theme" id="Theme_2clsm"]
+
+[node name="Border" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2clsm")
+
+[node name="PanelFrame" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 353.0
+texture = ExtResource("1_uww1p")
+region_rect = Rect2(1, 193, 62, 62)
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
