@@ -4,4 +4,5 @@
 
 [resource]
 texture = ExtResource("1_bke5v")
+expand_margin_right = 32.0
 region_rect = Rect2(33, 114, 80, 9)

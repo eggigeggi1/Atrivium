@@ -48,6 +48,11 @@ func _process(delta):
 			
 	if current_enemy_health <= 0:
 		Victory()
+	
+	if Global.Streak >= 2:
+		$Streak.visible = true
+	else:
+		$Streak.visible = false
 
 func spawn_random_enemy():	
 	var random_index = randi() % enemy_scenes.size()
@@ -198,8 +203,9 @@ func check_answer(answer):
 func _on_correct():
 	$BattleMenu/VBoxContainer/Defend.visible = false
 	Global.Streak += 1
+	$Streak/Panel/Label.text = "Streak = %d" % Global.Streak
 	if Global.Streak > 1:
-		Global.PlayerOverdrive += Global.Streak * 5
+		Global.PlayerOverdrive += max(Global.Streak * 10, 40)
 		if Global.PlayerOverdrive > Global.PlayerMaxOverdrive:
 			Global.PlayerOverdrive = Global.PlayerMaxOverdrive
 	var critcheck : int = randi_range(1, 20)

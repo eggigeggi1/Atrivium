@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5jcijfmvp7ft"]
+[gd_scene load_steps=15 format=3 uid="uid://5jcijfmvp7ft"]
 
 [ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_aqhpq"]
 [ext_resource type="Script" path="res://battle_scene.gd" id="1_dd7po"]
@@ -13,34 +13,36 @@
 [ext_resource type="AudioStream" uid="uid://bpf65b7drf633" path="res://Assets/MusicSFX/WAV Music/Music Loops/10 Terminus FULL LOOP TomMusic.wav" id="8_3i1vq"]
 [ext_resource type="StyleBox" uid="uid://co5yy82h5qwiq" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/overdrive.tres" id="8_hfnq5"]
 [ext_resource type="AudioStream" uid="uid://dst0jsnv7mnin" path="res://Assets/MusicSFX/10_Battle_SFX/22_Slash_04.wav" id="9_jjcrn"]
+[ext_resource type="Script" path="res://Streak.gd" id="10_ygjp7"]
 
 [node name="Battle Scene" type="Node2D"]
 script = ExtResource("1_dd7po")
 
 [node name="Tilesets" parent="." instance=ExtResource("1_aqhpq")]
+position = Vector2(0, -3)
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_5a6us")]
 z_as_relative = false
 
 [node name="HealthBar" type="ProgressBar" parent="Player"]
-offset_left = 32.0
-offset_top = 203.0
-offset_right = 237.0
+offset_left = 39.0
+offset_top = 221.0
+offset_right = 226.0
 offset_bottom = 247.0
 theme = ExtResource("5_08kjl")
 theme_override_fonts/font = ExtResource("4_s117w")
 theme_override_styles/background = ExtResource("6_6gg88")
 theme_override_styles/fill = ExtResource("6_ylecg")
-value = 80.0
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Player/HealthBar"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 184.0
-offset_bottom = 35.0
+offset_left = 21.0
+offset_top = 4.0
+offset_right = 198.0
+offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("4_s117w")
 text = "HP 50/100
 "
@@ -48,23 +50,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OverdriveBar" type="ProgressBar" parent="Player"]
-offset_left = 32.0
-offset_top = 165.0
-offset_right = 237.0
-offset_bottom = 209.0
+offset_left = 39.0
+offset_top = 195.0
+offset_right = 239.0
+offset_bottom = 221.0
 theme = ExtResource("5_08kjl")
 theme_override_fonts/font = ExtResource("4_s117w")
 theme_override_styles/background = ExtResource("7_qtnfd")
 theme_override_styles/fill = ExtResource("8_hfnq5")
-value = 80.0
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Player/OverdriveBar"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 184.0
-offset_bottom = 35.0
+offset_left = 22.0
+offset_top = 4.0
+offset_right = 197.0
+offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("4_s117w")
 text = "HP 50/100
 "
@@ -119,22 +121,82 @@ text = "Overdrive Strike"
 [node name="EnemySpawn" type="Node2D" parent="."]
 
 [node name="EnemyHealthBar" type="ProgressBar" parent="EnemySpawn"]
-offset_left = 438.0
-offset_top = 214.0
-offset_right = 596.0
-offset_bottom = 250.0
+offset_left = 404.0
+offset_top = 218.0
+offset_right = 583.0
+offset_bottom = 247.0
 theme = ExtResource("5_08kjl")
-value = 80.0
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="EnemySpawn/EnemyHealthBar"]
 layout_mode = 0
-offset_right = 157.0
-offset_bottom = 37.0
+offset_left = 21.0
+offset_top = 6.0
+offset_right = 188.0
+offset_bottom = 21.0
 theme_override_fonts/font = ExtResource("4_s117w")
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Streak" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_08kjl")
+script = ExtResource("10_ygjp7")
+
+[node name="Panel" type="Panel" parent="Streak"]
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="Streak/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0453125
+anchor_top = 0.261364
+anchor_right = 0.951563
+anchor_bottom = 0.772727
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 25
+text = "Streak: 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Tooltip" type="Control" parent="Streak"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 23.0
+offset_top = 42.0
+offset_right = 382.0
+offset_bottom = 82.0
+
+[node name="Panel" type="Panel" parent="Streak/Tooltip"]
+layout_mode = 0
+offset_right = 290.0
+offset_bottom = 116.0
+
+[node name="Label" type="Label" parent="Streak/Tooltip/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 280.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("4_s117w")
+theme_override_font_sizes/font_size = 16
+text = "Questions answered correctly in a row. The higher the streak, the faster your overdrive meter will charge. (Defending does not break streak
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Trivia" type="Control" parent="."]
 visible = false
@@ -313,6 +375,8 @@ volume_db = 20.0
 [connection signal="pressed" from="BattleMenu/VBoxContainer/TriviaStrike" to="." method="_on_trivia_strike_pressed"]
 [connection signal="pressed" from="BattleMenu/VBoxContainer/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="BattleMenu/VBoxContainer/Overdrive" to="." method="_on_overdrive_pressed"]
+[connection signal="mouse_entered" from="Streak/Panel" to="Streak" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Streak/Panel" to="Streak" method="_on_panel_mouse_exited"]
 [connection signal="pressed" from="Trivia/VBoxContainer/Ans12/Answer1" to="." method="_on_answer_1_pressed"]
 [connection signal="pressed" from="Trivia/VBoxContainer/Ans12/Answer2" to="." method="_on_answer_2_pressed"]
 [connection signal="pressed" from="Trivia/VBoxContainer/Ans34/Answer3" to="." method="_on_answer_3_pressed"]

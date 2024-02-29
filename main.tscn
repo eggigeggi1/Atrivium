@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd862gdtfo15v"]
+[gd_scene load_steps=12 format=3 uid="uid://cd862gdtfo15v"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_r8mu7"]
 [ext_resource type="PackedScene" uid="uid://dup68s4mahrli" path="res://map_tiles.tscn" id="2_uwtm6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Theme" uid="uid://bfwbma77ngb62" path="res://Assets/mapbuttons.tres" id="8_5f71t"]
 [ext_resource type="Script" path="res://Saver.gd" id="9_nm61i"]
 [ext_resource type="AudioStream" uid="uid://dbde6idovjof7" path="res://Assets/MusicSFX/WAV Music/Music Loops/5 A Safe Space LOOP TomMusic.wav" id="10_nfq0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrh6f"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_r8mu7")
@@ -552,6 +554,7 @@ offset_left = 18.0
 offset_top = 17.0
 offset_right = 227.0
 offset_bottom = 49.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yrh6f")
 
 [node name="HealthBar" type="ProgressBar" parent="UI/Panel"]
 layout_mode = 0
@@ -625,13 +628,15 @@ offset_bottom = 91.0
 
 [node name="Panel" type="Panel" parent="UI/Treasure/Tooltip"]
 layout_mode = 0
-offset_right = 265.0
-offset_bottom = 106.0
+offset_right = 290.0
+offset_bottom = 116.0
 
 [node name="Label" type="Label" parent="UI/Treasure/Tooltip/Panel"]
 layout_mode = 0
-offset_right = 265.0
-offset_bottom = 106.0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 280.0
+offset_bottom = 109.0
 theme_override_fonts/font = ExtResource("3_ww7yd")
 theme_override_font_sizes/font_size = 16
 text = "The Triviorb of True Sight will allow its owner to glimpse into the truths of this world (3 options instead of 4 on Trivia Strikes)

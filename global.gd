@@ -29,7 +29,7 @@ func set_health(progress_bar, health, max_health):
 func set_overdrive(progress_bar, overdrive, max_overdrive):
 	progress_bar.value = overdrive
 	progress_bar.max_value = max_overdrive
-	progress_bar.get_node("Label").text = "OD:%d/%d" % [overdrive, max_overdrive]
+	progress_bar.get_node("Label").text = "%d/%d" % [overdrive, max_overdrive]
 
 func reset():
 	var PlayerHealth : int = 100
