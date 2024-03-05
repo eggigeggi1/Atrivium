@@ -89,7 +89,6 @@ func _on_panel_2_mouse_entered():
 		$Tooltip/Panel/Label.text = "The Ankh of Resurrquestion will revive its owner with 1 HP should they fall in battle"
 	elif Treasure2 == "Quizzblade":
 		$Tooltip/Panel/Label.text = "The Quizzblade will increase the Attack of its owner by 10"
-		Global.PlayerDamage += 10
 	elif Treasure2 == "Triviorb of True Sight":
 		$Tooltip/Panel/Label.text = "The Triviorb of True Sight will allow its owner to glimpse into the truths of this world (3 options instead of 4 on Trivia Strikes)"
 	$Tooltip.visible = true

@@ -581,9 +581,9 @@ theme = ExtResource("3_cnbcs")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Treasure"]
 layout_mode = 0
-offset_left = 231.0
+offset_left = 257.0
 offset_top = 18.0
-offset_right = 371.0
+offset_right = 397.0
 offset_bottom = 50.0
 
 [node name="Container" type="Container" parent="UI/Treasure/HBoxContainer"]

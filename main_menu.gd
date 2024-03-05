@@ -8,9 +8,9 @@ func _ready():
 	$TorchSprite3.play("burn")
 	$TorchSprite4.play("burn")
 	
-	Global.question_array_easy = Global.fetch_random_questions("Easy", 20)
-	Global.question_array_medium = Global.fetch_random_questions("Medium", 20)
-	Global.question_array_hard = Global.fetch_random_questions("Hard", 20)
+	Global.question_array_easy = Global.fetch_random_questions("Easy", 30)
+	Global.question_array_medium = Global.fetch_random_questions("Medium", 30)
+	Global.question_array_hard = Global.fetch_random_questions("Hard", 30)
 	if FileAccess.file_exists("user://savegame.tres") == false:
 		$VBoxContainer/Continue.disabled = true
 
@@ -34,6 +34,8 @@ func _on_continue_pressed():
 	Global.PlayerPosition = saved_game.player_position
 	Global.PlayerPath = saved_game.player_path
 	Global.PlayerDamage = saved_game.player_damage
+	Global.PlayerMaxOverdrive = saved_game.player_max_overdrive
+	Global.PlayerOverdrive = saved_game.player_overdrive
 	Global.Ankh = saved_game.Ankh
 	Global.Blade = saved_game.Blade
 	Global.Orb = saved_game.Orb

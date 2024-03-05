@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2xx6qqrnoggo"]
+[gd_scene load_steps=7 format=3 uid="uid://d2xx6qqrnoggo"]
 
 [ext_resource type="Script" path="res://heal_scene.gd" id="1_4cvb1"]
 [ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="2_u18r6"]
@@ -6,28 +6,6 @@
 [ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="4_6wxdn"]
 [ext_resource type="PackedScene" uid="uid://c153tp4v2t2n0" path="res://healer.tscn" id="5_2kk05"]
 [ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="6_aub70"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aiya"]
-bg_color = Color(0.803922, 0.14902, 0.141176, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32gaf"]
-bg_color = Color(0.156863, 0.615686, 0.141176, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
 
 [node name="Heal Scene" type="Node2D"]
 script = ExtResource("1_4cvb1")
@@ -38,19 +16,19 @@ script = ExtResource("1_4cvb1")
 
 [node name="HealthBar" type="ProgressBar" parent="Player"]
 offset_left = 32.0
-offset_top = 215.0
-offset_right = 181.0
-offset_bottom = 247.0
-theme_override_fonts/font = ExtResource("4_6wxdn")
-theme_override_styles/background = SubResource("StyleBoxFlat_3aiya")
-theme_override_styles/fill = SubResource("StyleBoxFlat_32gaf")
-value = 80.0
+offset_top = 227.0
+offset_right = 219.0
+offset_bottom = 254.0
+theme = ExtResource("6_aub70")
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Player/HealthBar"]
 layout_mode = 0
-offset_right = 151.0
-offset_bottom = 33.0
+offset_left = 22.0
+offset_top = 6.0
+offset_right = 196.0
+offset_bottom = 21.0
 theme_override_fonts/font = ExtResource("4_6wxdn")
 text = "test
 "

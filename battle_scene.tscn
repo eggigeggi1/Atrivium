@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://5jcijfmvp7ft"]
+[gd_scene load_steps=16 format=3 uid="uid://5jcijfmvp7ft"]
 
 [ext_resource type="PackedScene" uid="uid://c2xumhbgrrgko" path="res://dungeon_battle.tscn" id="1_aqhpq"]
 [ext_resource type="Script" path="res://battle_scene.gd" id="1_dd7po"]
 [ext_resource type="PackedScene" uid="uid://crv3x3e1oep7k" path="res://player.tscn" id="2_5a6us"]
+[ext_resource type="Script" path="res://addons/shaker/shaker.gd" id="2_flhdr"]
 [ext_resource type="FontFile" uid="uid://c6183ypl1fh4i" path="res://Assets/hf-free-complete/futile-pro-v1/FutilePro.ttf" id="4_s117w"]
 [ext_resource type="Theme" uid="uid://bdea1gcms1s3p" path="res://Assets/trivia_theme.tres" id="5_08kjl"]
 [ext_resource type="StyleBox" uid="uid://bu6uxu4ai183p" path="res://Assets/Health Bar Asset Pack 2 by Adwit Rahman/Health Bar Asset Pack 2 by Adwit Rahman/healthbarempty.tres" id="6_6gg88"]
@@ -17,6 +18,10 @@
 
 [node name="Battle Scene" type="Node2D"]
 script = ExtResource("1_dd7po")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("2_flhdr")
 
 [node name="Tilesets" parent="." instance=ExtResource("1_aqhpq")]
 position = Vector2(0, -3)
@@ -372,6 +377,7 @@ volume_db = 20.0
 [connection signal="answer_selected" from="." to="." method="_on_answer_selected"]
 [connection signal="correct" from="." to="." method="_on_correct"]
 [connection signal="incorrect" from="." to="." method="_on_incorrect"]
+[connection signal="shake" from="." to="Camera2D" method="_on_battle_scene_shake"]
 [connection signal="pressed" from="BattleMenu/VBoxContainer/TriviaStrike" to="." method="_on_trivia_strike_pressed"]
 [connection signal="pressed" from="BattleMenu/VBoxContainer/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="BattleMenu/VBoxContainer/Overdrive" to="." method="_on_overdrive_pressed"]

@@ -9,7 +9,7 @@ var current_enemy_name : String
 var enemy_animation_player
 
 var right_answer
-
+signal shake
 signal answer_selected(answer: String)
 signal correct
 signal incorrect
@@ -24,6 +24,7 @@ var enemy_scenes : Array = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Streak/Panel/Label.text = "Streak = %d" % Global.Streak
 	if Global.PlayerPosition == 8:
 		$BossMusic.play()
 	if Global.WeakenSpell == true:
@@ -74,8 +75,8 @@ func spawn_random_enemy():
 		$EnemySpawn/EnemyHealthBar.position.x = 420
 	else:
 		if enemy_scenes[random_index] == preload("res://skeleton.tscn"):
-			current_enemy_health = 80
-			current_enemy_max_health = 80
+			current_enemy_health = 70
+			current_enemy_max_health = 70
 			current_enemy_damage = 8
 			current_enemy_name = "skeleton"
 			Global.FoughtEnemies.append(preload("res://skeleton.tscn"))
@@ -93,8 +94,8 @@ func spawn_random_enemy():
 			current_enemy_name = "flying_eye"
 			Global.FoughtEnemies.append(preload("res://flying_eye.tscn"))
 		elif enemy_scenes[random_index] == preload("res://mushroom.tscn"):
-			current_enemy_health = 100
-			current_enemy_max_health = 100
+			current_enemy_health = 80
+			current_enemy_max_health = 80
 			current_enemy_damage = 6
 			current_enemy_name = "mushroom"
 			Global.FoughtEnemies.append(preload("res://mushroom.tscn"))
@@ -111,7 +112,7 @@ func _on_trivia_strike_pressed():
 		question = get_random_question(Global.question_array_easy)
 		while question in Global.AskedQuestions:
 			question = get_random_question(Global.question_array_easy)
-	elif Global.PlayerPosition > 4 and Global.PlayerPosition < 8:
+	elif Global.PlayerPosition > 3 and Global.PlayerPosition < 8:
 		question = get_random_question(Global.question_array_medium)
 		while question in Global.AskedQuestions:
 			question = get_random_question(Global.question_array_medium)
@@ -205,7 +206,7 @@ func _on_correct():
 	Global.Streak += 1
 	$Streak/Panel/Label.text = "Streak = %d" % Global.Streak
 	if Global.Streak > 1:
-		Global.PlayerOverdrive += max(Global.Streak * 10, 40)
+		Global.PlayerOverdrive += min(Global.Streak * 10, 40)
 		if Global.PlayerOverdrive > Global.PlayerMaxOverdrive:
 			Global.PlayerOverdrive = Global.PlayerMaxOverdrive
 	var critcheck : int = randi_range(1, 20)
@@ -250,6 +251,9 @@ func _on_correct():
 		display_text("Correct! Dealt %d damage!" % damage)
 	var enemy_animation_player = current_enemy.get_node("Sprite")
 	enemy_animation_player.play("hurt")
+	emit_signal("shake")
+	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/15_Impact_flesh_02.wav"))
+	$SoundFX.play()
 	await get_tree().create_timer(0.2).timeout
 	$Player/Sprite.play("idle")
 	await get_tree().create_timer(0.5).timeout
@@ -308,8 +312,9 @@ func _on_incorrect():
 		$EnemySoundFX.play()
 	display_text("Incorrect! Received %d damage" % damage)
 	$Player/Sprite.play("hurt")
-	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/77_flesh_02.wav"))
+	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/15_Impact_flesh_02.wav"))
 	$SoundFX.play()
+	emit_signal("shake")
 	await get_tree().create_timer(0.5).timeout
 	$Player/Sprite.play("idle")
 	enemy_animation_player.play("idle")
@@ -377,7 +382,8 @@ func _on_defend_pressed():
 		$BattleMenu/VBoxContainer/Overdrive.visible = true
 	display_text("You braced yourself for the attack... Received %d damage" % damage)
 	$Player/Sprite.play("hurt")
-	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/77_flesh_02.wav"))
+	emit_signal("shake")
+	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/15_Impact_flesh_02.wav"))
 	$SoundFX.play()
 	if current_enemy_name == "flying_eye":
 		$EnemySoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/08_Bite_04.wav"))
@@ -405,6 +411,9 @@ func _on_overdrive_pressed():
 	Global.set_overdrive($Player/OverdriveBar, Global.PlayerOverdrive, Global.PlayerMaxOverdrive)
 	var enemy_animation_player = current_enemy.get_node("Sprite")
 	enemy_animation_player.play("hurt")
+	$SoundFX.set_stream(preload("res://Assets/MusicSFX/10_Battle_SFX/15_Impact_flesh_02.wav"))
+	$SoundFX.play()
+	emit_signal("shake")
 	await get_tree().create_timer(0.2).timeout
 	$Player/Sprite.play("idle")
 	await get_tree().create_timer(0.5).timeout
